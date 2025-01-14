@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="clock-container">
+      <div class="clock">
+          <div class="time" id="time">00:00 | 0 | 0</div>
+      </div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const timeElement = document.getElementById('time');
+      const now = new Date();
+  
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+  
+      const timeString = hours + minutes; 
+      const distinctCount = new Set(timeString).size; 
+  
+      const digitSum = timeString.split('')
+                                 .map(Number)
+                                 .reduce((acc, curr) => acc + curr, 0);
+  
+      timeElement.textContent = `${hours}:${minutes} | ${distinctCount} | ${digitSum}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>

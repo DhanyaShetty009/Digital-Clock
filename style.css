@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: antiquewhite;
+  font-family: 'Arial', sans-serif;
+}
+
+.clock {
+  background-color: black;
+  padding: 20px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px;
+  transition: transform 0.2s ease;
+}
+
+.clock:hover {
+  background-color: brown;
+  transform: scale(1.05);
+}
+
+.time {
+  color: cyan;
+  font-size: 70px;
+  font-weight: bold;
+  text-shadow: 0 0 10px;
+}
+
+@media (max-width: 480px) {
+  .time {
+      font-size: 40px;
+  }
+  
+  .clock {
+      padding: 15px 30px;
+  }
+}
